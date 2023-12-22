@@ -14,6 +14,7 @@ import { AppProvider } from './context/AppContext';
 import ExpenseTotal from './components/ExpenseTotal';
 import ExpenseList from './components/ExpenseList';
 import AllocationForm from './components/AllocationForm';
+import Currency from './components/Currency';
 const App = () => {
     return (
         <AppProvider>
@@ -22,7 +23,7 @@ const App = () => {
                 <div style={{display: "flex", 
                     flexDirection: "row",
                     justifyContent: "space-between"}} >
-                            <Budget/> <Remaining/> <ExpenseTotal/> 
+                            <Budget/> <Remaining/> <ExpenseTotal/> <Currency/>
                 </div>
                 <h2>Allocation</h2>
                 <ExpenseList/>

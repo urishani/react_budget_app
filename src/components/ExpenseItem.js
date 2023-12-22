@@ -10,18 +10,18 @@ const ExpenseItem = (props) => {
         });
     };
 
-    const increaseExpense = (name) => {
+    const increaseExpense = (name, amount) => {
         dispatch({
             type: 'ADD_EXPENSE',
-            payload: {name, cost: 10}
+            payload: {name, cost: amount}
         });
     };
 
     // eslint-disable-next-line
-    const reduceExpense = (name) => {
+    const reduceExpense = (name, amount) => {
         dispatch({
             type: 'RED_EXPENSE',
-            payload: {name, cost: 10}
+            payload: {name, cost: amount}
         });
     };
 
@@ -30,7 +30,12 @@ const ExpenseItem = (props) => {
         <tr>
             <td>{props.name}</td>
             <td>{currency}{props.cost}</td>
-            <td><button onClick = {event=>increaseExpense(props.name)}>+</button></td>
+            <td><button 
+                style={{backgroundColor:'green', color:'white', marginLeft:'2em'}} 
+                onClick = {event=>increaseExpense(props.name, 10)}>+</button></td>
+            <td><button 
+                style={{backgroundColor:'red', color:'white', marginLeft:'2em'}} 
+                onClick = {event=>reduceExpense(props.name, 10)}>-</button></td>
             <td><TiDelete size="1.5em" onClick = {event=>handleDeleteExpense(props.name)}></TiDelete></td>
         </tr>
     )

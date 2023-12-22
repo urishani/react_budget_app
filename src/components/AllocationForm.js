@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { AppContext } from "../context/AppContext";
-import s from './Budget.module.css';
+import './Budget.module.css';
 
 const AllocationForm = (props) => {
      const {dispatch, remaining, currency} = useContext(AppContext);
@@ -30,7 +30,12 @@ const AllocationForm = (props) => {
                 payload: expense,
             });
         }
-};
+    };
+    const handleChange = (event) => {
+        let cost = Math.max(0, Math.min(event.target.value, remaining));
+        event.target.value = cost; 
+        setCost(event.target.value);        
+    }
 
     return (
         <div>
@@ -65,9 +70,9 @@ const AllocationForm = (props) => {
                     id='cost'
                     value={cost?cost:0}
                     size='10'
-                    className='s.center'
+                    className='center'
                     style={{paddingLeft: '0.5rem'}}
-                    onChange={(event) => setCost(event.target.value)}>
+                    onChange={handleChange}>
                   </input></span>
                 </div>
                 <div className='s.center' style={{marginLeft: '2rem'}}>
