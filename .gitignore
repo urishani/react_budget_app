@@ -2,6 +2,9 @@
 __pycache__/
 *.py[cod]
 *$py.class
+# js/node
+node_modules
+package-lock
 
 # C extensions
 *.so
